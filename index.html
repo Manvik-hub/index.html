@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CBSE Class 12 English Master Hub 2026-27</title>
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  html{font-size:18px}
+  .hero{background:radial-gradient(circle at 85% 20%,#c026d3 0,transparent 40%),linear-gradient(135deg,#312e81,#6d28d9)}
+  .card:hover{transform:translateY(-3px);box-shadow:0 12px 24px -10px rgba(79,70,229,.45)}
+  .card{transition:all .2s}
+  body{font-family:Inter,system-ui,sans-serif;line-height:1.65;background:linear-gradient(180deg,#eef0ff,#faf5ff 60%,#fff);color:#1e1b3a}
+  h1,h2,h3,.serif{font-family:Newsreader,Georgia,serif}
+  ::-webkit-scrollbar{width:8px;height:8px}::-webkit-scrollbar-thumb{background:#b8b3e6;border-radius:8px}
+  #drawer{transition:transform .3s ease}
+  .navbtn.active{background:#4338ca;color:#fff}
+  .ans{border-left:3px solid #6366f1;background:#eef0ff}
+  #print-area{display:none}
+  @media print{
+    body{background:#fff;color:#000;font-family:"Times New Roman",serif}
+    header,aside,#drawer,#overlay,#mobnav,.noprint{display:none!important}
+    main{margin:0!important;padding:0!important}
+    .ans{background:#fff;border-left:2px solid #000}
+  }
+</style>
+</head>
+<body>
+<header class="sticky top-0 z-30 bg-white/95 backdrop-blur border-b border-indigo-100 flex items-center justify-between px-4 py-3">
+  <div class="serif text-lg font-bold text-indigo-900">CBSE Class 12 English Master Hub <span class="text-indigo-500">2026-27</span></div>
+  <button onclick="go('builder')" class="relative rounded-full bg-indigo-50 text-indigo-800 px-4 py-1.5 text-sm font-medium">
+    <i class="fa-solid fa-file-pen mr-1"></i> Test <span id="badgeH" class="ml-1 inline-block min-w-[1.4rem] rounded-full bg-indigo-700 text-white text-xs text-center px-1.5 py-0.5">0</span>
+  </button>
+</header>
+
+<div class="flex">
+  <aside class="hidden md:block w-60 shrink-0 sticky top-[57px] h-[calc(100vh-57px)] overflow-y-auto border-r border-indigo-100 bg-white p-3 space-y-1" id="side"></aside>
+  <main class="flex-1 p-4 md:p-8 pb-24 md:pb-8 min-w-0 max-w-5xl" id="view"></main>
+</div>
+<nav id="mobnav" class="md:hidden fixed bottom-0 inset-x-0 z-30 bg-white border-t border-indigo-100 flex overflow-x-auto text-xs"></nav>
+
+<div id="overlay" class="fixed inset-0 bg-black/40 z-40 hidden" onclick="closeDrawer()"></div>
+<section id="drawer" class="fixed top-0 right-0 h-full w-full sm:w-[34rem] lg:w-[40rem] bg-white z-50 translate-x-full shadow-2xl flex flex-col">
+  <div class="flex items-start justify-between gap-3 p-4 border-b border-indigo-100">
+    <div><h2 id="dTitle" class="serif text-xl font-bold text-indigo-900"></h2><p id="dSub" class="text-sm text-slate-500"></p></div>
+    <button onclick="closeDrawer()" aria-label="Close" class="h-9 w-9 shrink-0 rounded-full bg-slate-100 hover:bg-slate-200"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <div id="dBody" class="flex-1 overflow-y-auto p-4 space-y-5"></div>
+</section>
+
+<script>
+/* ---------- DATA ---------- */
+const CH = [
+ ['p','The Last Lesson'],['p','Lost Spring'],['p','Deep Water'],['p','The Rattrap'],['p','Indigo'],['p','Poets and Pancakes'],['p','The Interview'],['p','Going Places'],
+ ['e','My Mother at Sixty-six'],['e','An Elementary School Classroom in a Slum'],['e','Keeping Quiet'],['e','A Thing of Beauty'],['e',"Aunt Jennifer's Tigers"],
+ ['v','The Third Level'],['v','The Tiger King'],['v','Journey to the End of the Earth'],['v','The Enemy'],['v','On the Face of It'],['v','Memories of Childhood']
+];
+const SECT = {p:['prose','Flamingo Prose'],e:['poetry','Flamingo Poetry'],v:['vistas','Vistas']};
+/* Written Q&As, keyed by chapter index */
+const LIT = {
+0:[
+[`M. Hamel arrives in his green coat, frilled shirt and black silk embroidered cap, worn only on inspection or prize days. What does this choice reveal about his feelings, and how does it shape the mood of the classroom?`,
+`M. Hamel's formal dress, normally reserved for inspections and prize distributions, shows that he treats his final lesson as a ceremony of honour. By dressing grandly he pays tribute to the French language and to the village children he has taught for forty years. The unusual attire also unsettles Franz, who senses that something solemn has happened. Together with the silent classroom, the village elders sitting at the back and the absence of the usual noise, the costume creates a mood of reverence and grief. Franz first suspects a holiday, but the attire turns his curiosity into dread. Thus Daudet uses clothing as a symbol: it dignifies the language, signals loss, and prepares the reader for the emotional climax when Hamel chokes and writes "Vive la France!" on the blackboard.`],
+[`Franz says, "Will they make them sing in German, even the pigeons?" What does this remark show about his understanding of linguistic imperialism, and how has the lesson changed him?`,
+`Franz's remark is both innocent and perceptive. Hearing that Berlin has ordered German to be taught in Alsace and Lorraine, he jokes that even the pigeons might be forced to coo in German. The humour exposes the absurdity of imposing a language on a people and hints that language is tied to identity and freedom. Earlier Franz neglected his studies, skipped lessons for birds' eggs and sliding on the Saar, and dreaded participles. After the announcement he feels shame and regret; his books, once a burden, now feel like old friends. He understands that he took the language for granted until it was snatched away. The pigeon remark therefore marks his awakening: he grasps that political domination begins by silencing mother tongues, and that learning is a privilege.`]],
+1:[
+[`Saheb-e-Alam, the ragpicker boy, scrounges for gold in garbage heaps of Seemapuri, and later works at the tea stall. Explain how Anees Jung uses his name and his changed circumstances to portray the loss of freedom and childhood.`,
+`Saheb's name means "lord of the universe", yet he wanders barefoot in Seemapuri's garbage dumps, a refugee from Dhaka whose family lost their fields to storms. Ironically, the name highlights how poverty strips children of dignity. For him garbage is gold: he sometimes finds a rupee or even a ten-rupee note. His freedom to roam, however free from school, is illusory because it is dictated by hunger. When he joins the tea stall, he earns 800 rupees and meals, but loses even that freedom; the steel canister he carries seems heavier than the plastic bag he once carried because it is no longer his own. Jung thus shows how child labour exchanges one kind of bondage for another and robs children of play, education and identity.`]],
+3:[
+[`Edla Willmansson tells the peddler he may spend Christmas Eve at the Ramsjö ironworks, yet he leaves the stolen thirty kronor behind and signs himself "Captain von Stahle". What transformation does Selma Lagerlöf depict, and which events cause it?`,
+`The peddler begins as a cynic who sees the world as a rattrap baited with food and shelter, tempting people into ruin. His own theft of the crofter's thirty kronor proves him right, because he becomes trapped in the forest. The ironmaster mistakes him for an old regimental comrade, but it is Edla, the daughter, who sees through him and still offers kindness and a Christmas invitation. Her trust, unlike the ironmaster's conditional charity, awakens his conscience. He returns the money, leaving a letter and a gift for her, calling himself a captain whom the world has treated badly. The story thus argues that compassion, not suspicion, redeems people, and the rattrap metaphor becomes the peddler's own self-recognition.`]],
+2:[
+[`Douglas nearly drowns at the Yakima YMCA pool at ten, and years later swims in the Wisconsin and Cascade lakes. How does the author overcome his fear of water, and what lesson does the essay hold about courage?`,
+`At ten, Douglas is thrown into the deep end by a bully and sinks to the bottom, panicking before he kicks off the floor to surface. The terror stays for years: even the sight of water in the Cascades leaves him cold. He hires an instructor, who builds his confidence slowly, first by holding him with a rope, then by exercises that strengthen his legs, arms and breathing, until he can swim across the pool. Finally, at Meadow Lake, he conquers fear itself. The essay teaches that fear must be faced, not avoided. Douglas says that he learned to "fear nothing but fear itself", and the experience gave him a new zest for life, demonstrating how perseverance and patient training transform dread into strength.`]],
+13:[
+[`Charley discovers a third level at Grand Central Station and buys tickets to Galesburg in 1894. Is the third level real or a wish-fulfilment of an overstressed mind? Support your view with evidence from the story.`,
+`Jack Finney leaves the question open, but strong evidence supports both views. Charley's psychiatrist friend calls the third level a waking dream, born of a mind that craves escape from anxiety, insecurity and the modern world. Yet Charley finds a first-day cover, old-style tickets, and a clerk in a straw hat, and later older money he cannot use. Sam Weiner, the psychiatrist, even vanishes, then leaves a letter: he and his wife Louisa have moved to Galesburg in 1894 after finding the third level, and Charley finds a letter of his own. Because the physical letter dated 1894 survives, the story encourages readers to believe that nostalgia, warmth and slow-paced life can feel more real than the stressful present.`]]
+,
+4:[[`Why does Louis Fischer treat Gandhi's refusal to leave Champaran as a turning point, and how does Rajkumar Shukla's persistence set events in motion?`,`Shukla, an illiterate peasant, follows Gandhi from Lucknow to Kanpur until he promises to visit Champaran. There Gandhi defies the order to leave, is ready for jail, and forces an inquiry. Accepting a 25 percent refund, he frees peasants from fear and shows that ordinary people can resist injustice nonviolently.`]],
+5:[[`How do the make-up department and the "pancake" make-up at Gemini Studios reveal the writer's amused view of film-making in the 1940s?`,`Spender's Gemini colleagues, such as the Office Boy who dreamt of being a poet, show how wasted talent drifted into film. Make-up men treated every face with pancake and saw actors as products; the studio's chaotic, hierarchical life is observed with gentle irony.`]],
+6:[[`Umberto Eco says he is a scholar who also writes novels. How does his reply to Mukund Padmanabhan challenge the usual idea of fame and the interview itself?`,`Eco explains that he works across subjects and treats his novels as a hobby, quietly refusing the label of celebrity. His humour and calm show that depth, not publicity, matters, while Silvester's debate on interviews as intrusion shows how the form shapes public image.`]],
+7:[[`How does Sophie's fantasy of meeting Danny Casey differ from Jansie's and Geoff's attitude to reality in "Going Places"?`,`Sophie dreams of owning a boutique and of Danny Casey calling her, even claiming she has met him. Jansie is practical, Geoff sceptical. Her fantasy offers escape from a dull Irish home, but its collapse at the end reveals the gap between ambition and circumstance.`]],
+8:[[`What contrast does Kamala Das draw between her mother's ashen face and the "young trees sprinting" outside the car, and why does she end with a smile?`,`The mother's pale, corpse-like face reflects old age and the poet's fear of losing her. Beyond the window, trees and happy children suggest life and youth. The poet hides her pain and says "see you soon", a brave smile that reassures both of them.`]],
+9:[[`How does Stephen Spender use images like "sour cream" walls, a rat-eaten map and Shakespeare's head to criticise the slum classroom?`,`The walls, tinted like sour cream, and the map of the world that means nothing to the children show confined, neglected lives. Spender asks the governor and inspectors to give them a new world of sunlight and learning, so they can escape the slums.`]],
+10:[[`In "Keeping Quiet", what does Neruda mean by counting up to twelve and keeping still, and how is it different from inactivity or death?`,`Neruda wants a brief shared silence in which people stop wars, hurry and harm to nature. This stillness leads to self-reflection and unity. He insists it is not death; life goes on beneath it, as the earth does when it seems quiet.`]],
+11:[[`According to Keats, how do things of beauty offset the "dark spirits" of daily life, and which examples does he give?`,`A thing of beauty never fades into nothingness; it brings sweet dreams, health and quiet breathing. The sun, moon, trees, daffodils, streams and tales of mighty dead give comfort despite gloom, and flow like an endless fountain from heaven.`]],
+12:[[`How do the tigers on Aunt Jennifer's tapestry contrast with her own life, and what does the "massive weight of Uncle's wedding band" symbolise?`,`The proud tigers prance fearlessly, representing the freedom and courage Jennifer lacks. The heavy wedding band symbolises male dominance and oppressive marriage that makes her fingers tremble. Her art becomes quiet rebellion, outliving her, while she remains terrified.`]],
+14:[[`How does the Maharaja of Pratibandhapuram, Jung Bahadur, try to defy the prophecy about his death, and how does it still come true?`,`He kills 99 tigers, bans tiger hunts by others and even marries into a family with many tigers. At his son's birthday he buys a wooden toy tiger for the hundredth; a splinter pricks his hand, the wound festers and he dies, mocking human pride.`]],
+15:[[`What does Sidharth Mohan's account of Antarctica, with Gondwana and Goa, teach about climate change and human responsibility?`,`Tishani Doshi describes an icy continent whose rocks show Goa was once joined to it, and ice cores that record Earth's past. She warns that melting ice and pollution threaten the planet, so students of nature must protect it.`]],
+16:[[`Why does Dr. Sadao Hoki shelter the American prisoner Tom despite his duty as a Japanese patriot, and how do Hana and the General respond?`,`Sadao, trained in Boston, cannot turn away a dying man. He treats Tom's wounds, hides him and finally arranges his escape by boat. Hana helps, though reluctantly, while the General, needing Sadao, protects him; humanity overcomes national hatred.`]],
+17:[[`How does the friendship between Mr. Lamb and the burnt boy Derry in "On the Face of It" help Derry accept himself?`,`Derry hides from people because of his burnt face. The old man with a tin leg welcomes him into his garden, where he learns that people are not just faces. Lamb's death leaves him determined to face the world, not hide.`]],
+18:[[`How does Zitkala-Sa's loss of her long hair in the mission school reveal the cruelty of forced cultural assimilation?`,`In her culture only cowards and mourners cut their hair. Hiding under the bed, she is dragged out and shorn, feeling like a "little animal driven by a herder". The incident shows how institutions stripped Native children of identity and dignity.`]]
+
+};
+const LIT2={
+0:[[`How does M. Hamel blame himself, the parents and the villagers for neglecting French, and why are the old men like Hauser sitting at the back?`,`Hamel admits he often sent pupils to water his flowers and took holidays for fishing. He says parents wanted children to earn money. The villagers, including old Hauser with his primer, sit in the back to thank him and regret their own lost chance to learn.`]],
+1:[[`How does Mukesh's ambition to be a motor mechanic contrast with the fatalism of the bangle makers of Firozabad?`,`Mukesh wants to be a mechanic and is ready to walk to a garage, while his family accepts fate and caste burdens. The bangle makers, trapped by moneylenders and police, cannot imagine change. Mukesh's dream shows the hope of the young.`]],
+2:[[`What physical and mental symptoms of terror does Douglas describe when he nearly drowns, and how do they shape his later life?`,`He describes swallowing water, a green haze, and legs paralysed by fear. Each time he rose, he panicked again. Afterwards he trembled near water for years, losing the joy of canoeing, fishing and swimming until he overcame the memory.`]],
+3:[[`How do the ironmaster's and Edla's behaviour toward the peddler differ, and why does the author contrast them?`,`The ironmaster is hasty, mistaking him for Captain von Stahle, and is angry when the truth emerges. Edla, thoughtful and gentle, still welcomes him. The contrast shows that superficial charity is weaker than genuine, understanding kindness.`]],
+4:[[`What constructive work did Gandhi organise in Champaran beyond the legal inquiry, and why did he consider it vital?`,`Gandhi opened village schools with volunteers, taught hygiene, and engaged a doctor with Kasturba's help. He believed that political freedom needed social improvement and self-reliance, so peasants would not depend on any outsider.`]],
+5:[[`What was the role of Kothamangalam Subbu at Gemini Studios, and how did the poets and the "Legal Adviser" add to its odd atmosphere?`,`Subbu was Vasan's chief of story department, a poet and a generous man who wrote comic verses. The Legal Adviser, who wore a coat and sat unused, was paid to fight no cases. The staff reveal the studio's relaxed, quirky creative world.`]],
+6:[[`How does Rudyard Kipling's resentment of interviews, cited by Silvester, support the view that interviews can intrude on privacy?`,`Silvester recalls Kipling calling interviews immoral and a crime. Others like Lawrence felt it stole a part of the soul. The comparison shows that opinion on the interview as an art form is divided between truth-seeking and intrusion.`]],
+7:[[`What does the closing scene, in which Sophie waits by the bridge for Danny, suggest about the power and limit of fantasy?`,`Sophie imagines the meeting so intensely that she waits in vain. The silent ending shows her longing and loneliness, and warns that dreams without action cannot change reality.`]],
+8:[[`What is the effect of the simile "pale as a late winter's moon" and of the "old familiar ache" in the poem's ending?`,`The moon simile shows the mother's lifeless, fading face, hinting at ageing and death. The "childhood fear" returns, and the poet's smile hides fear, linking the opening car-window image with the closing farewell.`]],
+9:[[`How does Spender portray the individual children, such as the "tall girl with her head bowed" and the boy "stunted, unlucky heir", as victims of poverty?`,`The tall girl, lost in dreams, and the boy with inherited disease show despair and ill health. Their bent heads and dull eyes express society's neglect, which the poem urges leaders to remedy.`]],
+10:[[`What examples of destructive human activity does Neruda list in "Keeping Quiet", and what alternative does he suggest?`,`He speaks of fishermen harming whales, men gathering salt who see their hurt hands, and wars with gas and fire. Silence and togetherness would let us pause and think of preserving life instead.`]],
+11:[[`What does Keats mean by saying that beauty weaves "a flowery band to bind us to the earth"?`,`The image says that beauty ties human beings to life despite sorrow, gloom and disappointment. Nature, stories of noble heroes and daily joy form a bond that lifts the human spirit.`]],
+12:[[`What do the words "sleek" and "chivalric certainty" suggest about the tigers, and how do they differ from Jennifer's fear?`,`Sleek and chivalric show confidence, grace and fearless honour. The tigers walk unafraid beneath green trees, while Jennifer's fingers can barely pull the needle, showing her suppressed life.`]],
+14:[[`What part does the Dewan play in the Tiger King's story, and how does his advice sustain the Maharaja's obsession?`,`The Dewan flatters the ruler and cleverly arranges tigers to be brought, including the final hunt. He is torn between loyalty and fear of the King's anger. His submission highlights the flattery that encourages tyranny.`]],
+15:[[`What does Doshi mean by describing the Drake Passage and the continent as the "earth's memory", and how does it link past and future?`,`The ice cores and rocks hold records of the planet's temperature and gases. Understanding them helps people predict the climate, so Antarctica is both a scientific archive and a warning.`]],
+16:[[`How do the servants and Hana react to the wounded prisoner, and what do their attitudes show about wartime hatred?`,`The servants leave because they fear punishment and distrust the foreigner. Hana at first recoils, then helps with cloth and water. Their reactions show prejudice created by war that compassion has to overcome.`]],
+17:[[`How does Mrs. Dasgupta's attitude and the boys who throw stones at Derry reveal the cruelty of society toward a disfigured person?`,`Derry says that people stare, mock and avoid him, and even his mother cannot see him without grief. This hostility explains his bitterness and why Lamb's open friendship matters so much.`]],
+18:[[`How does Bama discover untouchability, and what advice does her elder brother give that changes her life?`,`She sees an elderly man carry curry in a packet by its string for the landlord, and her brother explains caste. He tells her to study hard to earn respect, which makes her a top student and later a Dalit writer.`]]
+};
+for(const k in LIT2)(LIT[k]=LIT[k]||[]).push(...LIT2[k]);
+
+const LIT3={
+0:[
+[`What temptations nearly kept Franz from school that morning, and what does his decision to go show?`,`The warm weather, the chirping blackbirds and Prussian soldiers drilling in the field tempted him to skip. Resisting them, he went, though in fear of Hamel's questions on participles, unknowingly attending the final French lesson.`],
+[`What did Franz see at the town hall notice board, and how did the blacksmith Wachter's remark mislead him?`,`A crowd stood before the bulletin board, which carried bad news for two years. Wachter told him not to hurry, as he would reach school in time. Franz thought it a joke, unaware of the real order.`],
+[`Why does Franz find the unusual silence of the classroom startling?`,`Usually the school hummed with desks opening, lessons repeated aloud and Hamel's ruler rapping. That morning it was calm like a Sunday, so Franz expected punishment for lateness and felt embarrassed.`],
+[`How does M. Hamel receive Franz when he enters late, and what does this kindness signify?`,`Instead of scolding, Hamel gently asks him to take his seat, saying they had nearly begun without him. His soft tone shows that this day is special and that strict discipline has given way to affection.`],
+[`What announcement does Hamel make about the order from Berlin, and how does it affect the pupils?`,`He says only German will be taught in the schools of Alsace and Lorraine, and the new master comes tomorrow. The pupils are stunned, and Franz feels sorry for wasted time and ashamed.`],
+[`Why does Franz say his books now feel like "old friends", and what change in his outlook does this indicate?`,`The grammar and sacred history books were burdens he wanted to leave. Faced with parting from them, he sees their value. He moves from careless boyhood to understanding of what learning and language mean.`],
+[`Why does Franz fail to recite the participle rule, and what does the failure teach him?`,`He confuses the rule and stands tongue-tied, head hanging. Hamel does not scold, but blames everyone for postponing study. Franz learns that putting things off can lead to irreparable loss.`],
+[`How does Hamel describe the French language, and what does he urge the villagers to do with it?`,`He calls French the clearest, most logical and most beautiful language. He urges them to guard it among themselves and never forget it, because a people holding their language hold the key to their prison.`],
+[`Explain Hamel's idea that holding fast to one's language is like having "the key to their prison."`,`Language carries culture, memory and identity. Even enslaved people who keep their language can resist assimilation and one day regain freedom, because the conqueror cannot erase what lives in their speech.`],
+[`How do the copy slips reading "France, Alsace, France, Alsace" hanging from the desk rods express patriotism?`,`Hamel had prepared new copies with the names of the lost region, flying like little flags around the room. The slips show the pupils working to write their motherland's name, a quiet pledge of loyalty.`],
+[`How does Daudet use the worn benches, walnut trees and hop vine to show Hamel's attachment to the school?`,`Hamel has watched the benches wear, the walnuts grow and the hop vine climb to the windows. His sorrow at leaving them, and his sister's packing upstairs, reveal forty years of devoted routine.`],
+[`What is the significance of the church clock striking twelve and the Prussian trumpets during the final lesson?`,`The clock marks the end of an era and the trumpets announce the returning Prussian soldiers, symbols of the conqueror's arrival. The sounds interrupt Hamel and heighten the story's emotional climax.`],
+[`How does Franz's view of Hamel change from fear to admiration during the lesson?`,`Franz once feared the ruler and temper. Now he forgets the ruler and pitiable manner, and realises Hamel is leaving after forty years. He admires his patience and wants to make up for being a lazy pupil.`],
+[`Why does Hamel write "Vive la France!" on the blackboard, and why does he lean against the wall?`,`Choked with emotion, he cannot speak, so he writes the cry of loyalty in big letters. Leaning his head on the wall, he gestures dismissal, a silent farewell expressing grief and love of country.`],
+[`How is the theme of language and freedom developed across the story?`,`Berlin's order, Hamel's praise of French, the pigeons joke and "the key to their prison" together show language as identity. Daudet argues that suppression of a language is political domination.`],
+[`How do the village elders, such as the former mayor and the postmaster, add to the mood of the last lesson?`,`The old men, with triangular hats and primers, sit on the back benches and weep as they join in the lesson. Their presence makes the occasion a community mourning and shows shared regret for neglected learning.`],
+[`Does Daudet suggest that the villagers share the blame for neglecting French? Support your answer from the story.`,`Yes. Hamel says parents were anxious to put children to work, and he himself used them for gardens and fishing. Everyone postponed learning, so everyone loses it too late.`]
+],
+1:[
+[`Why did the ragpickers' families leave Dhaka for Seemapuri, and how do they live there?`,`Storms swept away their fields and homes in Bangladesh, so they migrated to Delhi in 1971. They live in mud hutments with roofs of tin and tarpaulin, without sewage or drinking water, surviving on garbage.`],
+[`What does the incident of Saheb's tennis shoes reveal about his longing and about social inequality?`,`He wears discarded tennis shoes with holes, a rich boy's cast-offs, yet is delighted. Peering through a fence at a tennis court, he says he plays only when the gate is open, showing that games belong to the privileged.`],
+[`How does the narrator respond when Saheb asks about school, and what does his reaction show?`,`When she suggests he go to school, he says there is none in his neighbourhood. When she jokes she will open one, he asks if she will really do it. Later he reports that he has joined and the writer realises it was an empty promise.`],
+[`Why does the writer say that garbage is "gold" to the ragpickers and a means of survival to their parents?`,`For children, garbage may bring a coin or a rupee note, a surprise that feels like treasure. For parents it is bread. Anees Jung exposes how poverty can transform filth into hope.`],
+[`Describe the working conditions of the glass-bangle workers in Firozabad.`,`Families work in dark, poorly ventilated hutments, before hot furnaces with high temperatures, joining glass rings. Children often lose eyesight before they become adults, since they work in dim light.`],
+[`What does Savita, the girl in the faded pink dress, symbolise in the Firozabad episode?`,`Savita sits with a bangle-welder and works mechanically, unaware that bangles symbolise marriage and happiness. She stands for children who make bridal ornaments but do not know any joy themselves.`],
+[`How does the idea of caste and destiny, "karam", trap Mukesh's family and neighbours in the bangle trade?`,`Mukesh's grandmother believes bangle-making is their karam, God-given lot. Born in the caste of bangle makers, they accept it and never dream otherwise, so poverty continues for generations.`],
+[`Who forms the "vicious circle" that keeps the Firozabad workers poor, and how?`,`Sahukars, middlemen, the police, bureaucrats and politicians exploit them. Moneylenders trap families in debt, and officials block any cooperative. Thus bangle makers are stuck in poverty.`],
+[`Why can the bangle makers of Firozabad not organise themselves into a cooperative?`,`They fear being beaten and jailed by the police, who side with moneylenders. Years of exploitation have also left them without leadership or courage, so any attempt at organising collapses.`],
+[`What is the significance of the title "Lost Spring"?`,`Spring symbolises childhood and promise. For Saheb and Mukesh, it is lost to labour and poverty. The title laments the death of play, education and hope for millions of child workers.`],
+[`Why do the ragpickers lack identity papers, yet hold ration cards, and what does this paradox suggest?`,`They have no permits or documents to prove citizenship, but ration cards let them get grain and vote. The writer shows that their food matters more to authorities than their rights.`],
+[`How does Anees Jung explain the bare feet of children as a "tradition", and why is she unconvinced?`,`Some say it is a tradition to go barefoot, but she sees that it is an excuse for poverty. She suspects the reason is a lack of money, and tradition becomes cover for neglect.`],
+[`How does the author contrast the glitter of bangles with the grim lives of the workers who make them?`,`Colourful bangles of every shade are the pride of Indian brides, yet the makers live in squalor and darkness. The contrast between beauty and misery underlines the cruelty of exploitation.`],
+[`Why does the writer say that the young of Firozabad are "born in debt" and "their spirit is crushed"?`,`Generations inherit debt along with the trade, so they know nothing else. Fear of the system and the lack of vision make them lose spirit, and the cycle of poverty continues.`],
+[`How does the story show the failure of child-labour laws in India?`,`Although children working in hazardous furnaces is illegal, thousands do so openly. Police and officials look away, showing that laws mean little without enforcement and welfare.`],
+[`Identify two images in "Lost Spring" that convey poverty vividly, and explain their effect.`,`"Roofs of tin and tarpaulin" and "mounds of garbage" evoke a landscape where dignity is absent. These images give readers a concrete sense of the children's world.`],
+[`How does the writer use irony in the names Saheb-e-Alam, Mukesh and Savita?`,`Saheb-e-Alam means lord of the universe, though he is a rag-picking beggar. Mukesh and Savita bear names of ordinary ones without hope. Irony underlines the gap between promise and reality.`],
+[`Compare the two parts of the chapter: how are Saheb's and Mukesh's situations similar and different?`,`Both lose childhood to work. Saheb is a migrant ragpicker with some freedom who then becomes a servant, while Mukesh is a native of Firozabad bound by caste and tradition, yet dreaming of becoming a mechanic.`]
+]
+};
+for(const k in LIT3)(LIT[k]=LIT[k]||[]).push(...LIT3[k]);
+
+const GR = [
+['She had hardly entered the room when the lights went out.','Invert using "Hardly ... when".','Hardly had she entered the room when the lights went out.','With negative adverbials such as "hardly" and "scarcely" at the start, the auxiliary comes before the subject.'],
+['He finished the report and left immediately.','Invert using "No sooner ... than".','No sooner had he finished the report than he left.','"No sooner" takes the past perfect in the first clause and the simple past after "than", with subject-auxiliary inversion.'],
+['I am not rich, so I cannot buy a villa.','Convert to the subjunctive mood (unreal present).','If I were rich, I could buy a villa.','The subjunctive "were" is used for all persons in a hypothetical present condition, with "would/could" in the main clause.'],
+['She talks as if she knows everything.','Rewrite in the subjunctive, showing the situation is unreal.','She talks as if she knew everything.','After "as if/as though" for unreal comparisons, the past form (or "were") is used.'],
+['Someone has stolen my wallet.','Change to the passive voice.','My wallet has been stolen.','The present perfect passive is "has/have been + past participle"; the vague agent "someone" is dropped.'],
+['People say that he is a genius.','Change to the passive (two ways).','He is said to be a genius. / It is said that he is a genius.','Reporting verbs like "say", "believe" allow impersonal passives with "to + infinitive" or "It is ... that".'],
+['Because the road was flooded, we took a longer route.','Convert to a simple sentence using a participle phrase.','The road being flooded, we took a longer route.','An absolute phrase replaces an adverbial clause of reason by using a noun with a participle.'],
+['He is a man who is known for generosity and who never refuses help.','Identify the clauses and the type of each.','Main: "He is a man"; two adjective (relative) clauses: "who is known for generosity", "who never refuses help".','Relative clauses beginning with "who" modify the noun "man", so they are subordinate adjective clauses.'],
+['Nobody can deny that the environment is deteriorating.','Nominalise the noun clause.','Nobody can deny the deterioration of the environment.','Nominalisation turns a verb or clause into a noun phrase, making the style compact and formal.'],
+['If you had worked harder, you would have passed.','Invert, omitting "if".','Had you worked harder, you would have passed.','In formal third conditionals, "had" moves before the subject and replaces "if".']
+];
+const RD = [
+{t:'Can Machines Be Moral?',topic:'AI & Ethics',p:`Artificial intelligence now writes essays, diagnoses tumours and approves loans, yet its growing influence raises a question older than computing: who is responsible when a machine errs? Engineers argue that an algorithm is merely a tool, as neutral as a hammer. Critics reply that a hammer does not learn from data, and data inherits the prejudices of those who gathered it. A lending model trained on decades of biased decisions will quietly repeat them, with the added authority of apparent objectivity. Some philosophers therefore propose that moral reasoning should be built into systems from the start, through transparent rules and human oversight. Others warn that ethics cannot be reduced to code, because values such as dignity and fairness are contested and shift across cultures. Perhaps the wisest course lies between the two positions: accept that machines will never be moral agents, but insist that their designers and users always are. Responsibility, in this view, cannot be outsourced; it can only be shared more carefully among the people who build, deploy and regulate the technology.`,
+qa:[
+['What is the central question raised in the passage?','The passage asks who is responsible when an AI system makes a mistake.'],
+['What does the comparison with a hammer suggest about the engineers\' view?','It suggests they see AI as a neutral tool whose morality lies only in how people use it.'],
+['Why do critics reject the hammer analogy?','Because AI learns from data, and that data carries human prejudice, so it is not neutral.'],
+['What does "quietly repeat" imply in the lending example?','It implies that the bias is hidden and unnoticed, yet continues to affect decisions.'],
+['What is the author\'s tone in the final sentences?','Balanced and reflective; the author favours a middle path rather than either extreme.']
+]}
+];
+for(let i=1;i<40;i++)RD.push(null);
+
+/* ---------- STATE ---------- */
+const sel=new Set();let cur='home';
+const $=id=>document.getElementById(id);
+const NAV=[['home','Home','fa-house'],['prose','Flamingo Prose','fa-book-open'],['poetry','Flamingo Poetry','fa-feather'],['vistas','Vistas','fa-compass'],['grammar','Grammar','fa-spell-check'],['reading','Reading Passages','fa-file-lines'],['builder','Test Builder','fa-file-pen']];
+
+function lookup(id){
+  const [k,a,b]=id.split('-');
+  if(k==='L'){const q=(LIT[a]||[])[b];return {q:q[0],a:q[1],src:CH[a][1]};}
+  if(k==='G'){const g=GR[a];return {q:`${g[0]} — ${g[1]}`,a:`${g[2]} (${g[3]})`,src:'Grammar'};}
+  const r=RD[a].qa[b];return {q:r[0],a:r[1],src:RD[a].t};
+}
+function toggle(id){sel.has(id)?sel.delete(id):sel.add(id);count();
+  document.querySelectorAll(`[data-id="${id}"]`).forEach(b=>b.innerHTML=sel.has(id)?'<i class="fa-solid fa-check"></i> Added':'<i class="fa-solid fa-plus"></i> Add to test');
+  if(cur==='builder')render();}
+function count(){$('badgeH').textContent=sel.size;const s=document.querySelector('#side .cnt');if(s)s.textContent=sel.size;}
+function addBtn(id){return `<button data-id="${id}" onclick="toggle('${id}')" class="noprint text-xs rounded-full border border-indigo-300 text-indigo-700 px-3 py-1 hover:bg-indigo-50">${sel.has(id)?'<i class="fa-solid fa-check"></i> Added':'<i class="fa-solid fa-plus"></i> Add to test'}</button>`;}
+function qaBlock(id,n){const x=lookup(id);return `<article><div class="flex justify-between gap-3 items-start"><h3 class="font-semibold text-slate-900"><span class="text-indigo-600">Q${n}.</span> ${x.q}</h3>${addBtn(id)}</div><p class="ans mt-2 rounded-r-lg p-3 text-sm leading-relaxed">${x.a}</p></article>`;}
+
+/* ---------- DRAWER ---------- */
+function openDrawer(t,s,html){$('dTitle').textContent=t;$('dSub').textContent=s;$('dBody').innerHTML=html;$('dBody').scrollTop=0;
+  $('overlay').classList.remove('hidden');$('drawer').classList.remove('translate-x-full');}
+function closeDrawer(){$('overlay').classList.add('hidden');$('drawer').classList.add('translate-x-full');}
+function openCh(i){const qs=LIT[i]||[];
+  const body=qs.length?qs.map((_,n)=>qaBlock(`L-${i}-${n}`.replace('L-','L-'),n+1)).join(''):'<p class="text-slate-500">No questions have been added for this chapter yet.</p>';
+  openDrawer(CH[i][1],`${SECT[CH[i][0]][1]} · ${qs.length} of 20 questions written`,body);}
+function openRd(i){const r=RD[i];
+  if(!r)return openDrawer(`Passage ${i+1}`,'Not written yet','<p class="text-slate-500">This passage has not been added yet.</p>');
+  openDrawer(r.t,`${r.topic} · ${r.qa.length} of 20 questions written`,`<p class="serif text-[1.05rem] leading-8 bg-slate-50 rounded-lg p-4">${r.p}</p>`+r.qa.map((_,n)=>qaBlock(`R-${i}-${n}`,n+1)).join(''));}
+
+/* ---------- VIEWS ---------- */
+function chapterList(sec){const col={p:['indigo','#6366f1','fa-book-open'],e:['rose','#f43f5e','fa-feather'],v:['amber','#f59e0b','fa-compass']}[sec];
+  return `<div class="grid sm:grid-cols-2 gap-4 mt-5">`+CH.map((c,i)=>{if(c[0]!==sec)return '';const n=(LIT[i]||[]).length;
+  return `<button onclick="openCh(${i})" class="card text-left rounded-2xl bg-white p-5 shadow-sm border-t-4" style="border-color:${col[1]}"><div class="flex items-center gap-3"><span class="h-11 w-11 rounded-xl flex items-center justify-center text-white" style="background:${col[1]}"><i class="fa-solid ${col[2]}"></i></span><span class="serif text-xl font-bold text-slate-900">${c[1]}</span></div><div class="mt-4 h-2 rounded-full bg-slate-100"><div class="h-2 rounded-full" style="width:${n*5}%;background:${col[1]}"></div></div><div class="text-sm text-slate-500 mt-2">${n} of 20 questions written</div></button>`}).join('')+`</div>`;}
+const V={
+home:()=>`<section class="hero rounded-3xl text-white p-8 md:p-14 shadow-xl">
+  <h1 class="text-4xl md:text-6xl font-bold leading-tight">Board-ready English, chapter by chapter.</h1>
+  <p class="mt-3 text-indigo-100 max-w-xl">Literature answers, Class 12 grammar transformations and reading passages for CBSE 2026-27, with a test builder you can print.</p>
+  <button onclick="go('prose')" class="mt-6 rounded-full bg-indigo-500 hover:bg-violet-500 px-7 py-2.5 font-semibold shadow-lg">Explore →</button></section>
+  <div class="grid sm:grid-cols-3 gap-3 mt-5">
+  <div class="rounded-xl bg-white p-4 border border-indigo-100"><b class="serif text-lg">Literature</b><p class="text-sm text-slate-600">19 chapters: 8 prose, 5 poems, 6 Vistas.</p></div>
+  <div class="rounded-xl bg-white p-4 border border-indigo-100"><b class="serif text-lg">Grammar</b><p class="text-sm text-slate-600">Inversion, subjunctive, voice, clauses.</p></div>
+  <div class="rounded-xl bg-white p-4 border border-indigo-100"><b class="serif text-lg">Reading</b><p class="text-sm text-slate-600">40 passage slots with text-anchored questions.</p></div></div>`,
+prose:()=>`<h1 class="text-3xl font-bold">Flamingo Prose</h1><p class="text-slate-600">Open a chapter to see its questions and model answers.</p>`+chapterList('p'),
+poetry:()=>`<h1 class="text-3xl font-bold">Flamingo Poetry</h1><p class="text-slate-600">Open a poem to see its questions and model answers.</p>`+chapterList('e'),
+vistas:()=>`<h1 class="text-3xl font-bold">Vistas</h1><p class="text-slate-600">Open a chapter to see its questions and model answers.</p>`+chapterList('v'),
+grammar:()=>`<h1 class="text-3xl font-bold">Grammar</h1><p class="text-slate-600 mb-4">${GR.length} of 100 transformation tasks written.</p><div class="space-y-4">`+GR.map((g,i)=>`<article class="rounded-xl bg-white border border-indigo-100 p-4"><div class="flex justify-between gap-3"><p><b>${i+1}.</b> ${g[0]}</p>${addBtn('G-'+i)}</div><p class="text-sm text-indigo-700 mt-1"><i class="fa-solid fa-arrow-right"></i> ${g[1]}</p><p class="mt-2 text-sm"><b>Answer:</b> ${g[2]}</p><p class="text-sm text-slate-600"><b>Rule:</b> ${g[3]}</p></article>`).join('')+`</div>`,
+reading:()=>`<h1 class="text-3xl font-bold">Reading Passages</h1><p class="text-slate-600">${RD.filter(Boolean).length} of 40 passages written.</p><div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-4">`+RD.map((r,i)=>`<button onclick="openRd(${i})" class="text-left rounded-xl bg-white border border-indigo-100 hover:border-indigo-400 p-4"><div class="serif font-bold text-indigo-900">${i+1}. ${r?r.t:'Passage not written yet'}</div><div class="text-xs text-slate-500 mt-1">${r?r.topic+' · '+r.qa.length+' of 20 questions':'Empty slot'}</div></button>`).join('')+`</div>`,
+builder:()=>{const ids=[...sel];
+  return `<div class="flex flex-wrap items-center justify-between gap-3 noprint"><h1 class="text-3xl font-bold">Test Builder</h1><div class="flex gap-2">
+  <label class="text-sm flex items-center gap-2"><input type="checkbox" id="showAns" onchange="render()" ${window.showA?'checked':''}> Include answers</label>
+  <button onclick="window.print()" class="rounded-full bg-indigo-700 text-white px-5 py-1.5 text-sm"><i class="fa-solid fa-print"></i> Print</button>
+  <button onclick="sel.clear();count();render()" class="rounded-full border border-slate-300 px-4 py-1.5 text-sm">Clear</button></div></div>
+  <div class="hidden print:block text-center border-b border-black pb-2 mb-4"><h1 class="text-xl font-bold">CBSE Class 12 English — Practice Test</h1><p class="text-sm">Name: ____________ Marks: ______</p></div>`+
+  (ids.length?`<ol class="mt-4 space-y-4">`+ids.map((id,n)=>{const x=lookup(id);return `<li class="rounded-xl bg-white border border-indigo-100 p-4 print:border-0 print:p-0"><div class="flex justify-between gap-3"><p><b>${n+1}.</b> ${x.q} <span class="text-xs text-slate-500">[${x.src}]</span></p><button onclick="toggle('${id}')" class="noprint text-xs text-red-600">Remove</button></div>${window.showA?`<p class="ans mt-2 rounded-r-lg p-3 text-sm">${x.a}</p>`:''}</li>`}).join('')+`</ol>`
+  :`<p class="mt-6 text-slate-500 noprint">No questions selected. Open a chapter, grammar task or passage and choose Add to test.</p>`);}
+};
+function render(){const a=$('showAns');if(a)window.showA=a.checked;$('view').innerHTML=V[cur]();
+  document.querySelectorAll('.navbtn').forEach(b=>b.classList.toggle('active',b.dataset.v===cur));}
+function go(v){cur=v;closeDrawer();render();window.scrollTo({top:0});}
+function init(){
+  $('side').innerHTML=NAV.map(n=>`<button data-v="${n[0]}" onclick="go('${n[0]}')" class="navbtn w-full text-left rounded-lg px-3 py-2 text-sm font-medium hover:bg-indigo-50 flex items-center gap-3"><i class="fa-solid ${n[2]} w-4"></i>${n[1]}${n[0]==='builder'?'<span class="cnt ml-auto rounded-full bg-indigo-700 text-white text-xs px-2">0</span>':''}</button>`).join('');
+  $('mobnav').innerHTML=NAV.map(n=>`<button data-v="${n[0]}" onclick="go('${n[0]}')" class="navbtn shrink-0 px-4 py-2 flex flex-col items-center gap-1"><i class="fa-solid ${n[2]}"></i>${n[1].replace('Flamingo ','')}</button>`).join('');
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDrawer();});
+  render();count();}
+init();
+</script>
+</body>
+</html>
